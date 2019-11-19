@@ -102,3 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Sublime Plugin
+MK-Img2fig.sublime-project
+MK-Img2fig.sublime-workspace
