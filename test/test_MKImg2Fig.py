@@ -21,3 +21,6 @@ class MKImg2FigTestCase(unittest.TestCase):
         outString = markdown.markdown(
             inString, extensions=[MKImg2Fig.MKImg2FigExtension()])
         self.assertEqual(inString, outString)
+
+    def test_simple(self):
+        pass
