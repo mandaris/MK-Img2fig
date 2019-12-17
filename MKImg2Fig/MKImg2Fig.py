@@ -1,7 +1,7 @@
 # MK-Img2Fig: Markdown Img to Figure
 #
 # Copyright (c) 2019 Mandaris Moore
-#
+# 
 # GNU License
 from markdown.extensions import Extension
 from markdown.treeprocessors import Treeprocessor
