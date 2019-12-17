@@ -40,3 +40,6 @@ Taken from yafg test suite"""
         outString = markdown.markdown(
             inString, extensions=[MKImg2Fig.MKImg2FigExtension()])
         self.assertEqual(expectedString, outString)
+
+    def test_simple(self):
+        pass
