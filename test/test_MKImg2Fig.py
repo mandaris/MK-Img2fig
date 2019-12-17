@@ -21,3 +21,22 @@ class MKImg2FigTestCase(unittest.TestCase):
         outString = markdown.markdown(
             inString, extensions=[MKImg2Fig.MKImg2FigExtension()])
         self.assertEqual(inString, outString)
+
+    def test_no_images(self):
+        inString = """\
+This is a test text.
+
+It contains multiple paragraphs as well as [links](https://example.com).
+
+* Itemize
+* is
+* used,
+* as well.
+
+# This is a headline.
+
+Taken from yafg test suite"""
+        expectedString = markdown.markdown(inString)
+        outString = markdown.markdown(
+            inString, extensions=[MKImg2Fig.MKImg2FigExtension()])
+        self.assertEqual(expectedString, outString)
