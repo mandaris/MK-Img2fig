@@ -18,5 +18,6 @@ class MKImg2FigTestCase(unittest.TestCase):
 
     def test_empty_input(self):
         inString = ""
-        outString = markdown.markdown(inString, extensions=[MKImg2Fig.MKImg2FigExtension()])
+        outString = markdown.markdown(
+            inString, extensions=[MKImg2Fig.MKImg2FigExtension()])
         self.assertEqual(inString, outString)
