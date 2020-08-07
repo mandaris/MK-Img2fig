@@ -37,9 +37,24 @@ It contains multiple paragraphs as well as [links](https://example.com).
 
 Taken from yafg test suite"""
         expectedString = markdown.markdown(inString)
+        print(expectedString)
         outString = markdown.markdown(
             inString, extensions=[MKImg2Fig.MKImg2FigExtension()])
         self.assertEqual(expectedString, outString)
 
     def test_simple(self):
         pass
+
+    def test_simple_image(self):
+            inString = """\
+![alt text](/path/to/image.png "Title")"""
+            expectedString = """\
+<figure>
+<img alt="alt text" src="/path/to/image.png" title="Title" />
+<figcaption>Title</figcaption>
+</figure>"""
+            outString = markdown.markdown(
+                inString, extensions=[MKImg2Fig.MKImg2FigExtension()])
+            print("This is the simple test")
+            print(outString)
+            self.assertEqual(expectedString, outString)

@@ -11,11 +11,12 @@ from markdown.treeprocessors import Treeprocessor
 class Img2Figprocessor(Treeprocessor):
     """docstring for Img2Figprocessor"""
 
-    def __init__(self, md, stripTitle, figureClass, figcaptionClass):
+    def __init__(self, md, stripTitle, figureClass, figcaptionClass, useAltTag):
         self.md = md
         self.stripTitle = stripTitle
         self.figureClass = figureClass
         self.figcaptionClass = figcaptionClass
+        self.useAltTag = useAltTag
         super(Img2Figprocessor, self).__init__()
 
     def run(self, root):
@@ -29,6 +30,7 @@ class MKImg2FigExtension(Extension):
             "figureClass": ["", "CSS class to add to the <figure /> element."],
             "figcaptionClass":
                 ["", "CSS class to add to the <figcaption /> element."],
+            "useAltTag": [False, "Use Alt tag if Title is not defined."]
         }
         super(MKImg2FigExtension, self).__init__(**kwargs)
 
@@ -39,6 +41,7 @@ class MKImg2FigExtension(Extension):
                 stripTitle=self.getConfig("stripTitle"),
                 figureClass=self.getConfig("figureClass"),
                 figcaptionClass=self.getConfig("figcaptionClass"),
+                useAltTag=self.getConfig("useAltTag"),
             ),
             "Img2figprocessor",
             15)
